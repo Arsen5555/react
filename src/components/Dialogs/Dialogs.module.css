@@ -1,22 +1,41 @@
 .dialogs {
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 2fr 6fr;
 }
 
 .dialogsItems {
     padding: 10px;
 }
-.dialogsItems .active{
+
+.dialog .active  {
     color: gold;
 }
 
-.dialogsItems .dialog{
-
-}
-.messages {
+ .messages {
     padding: 10px;
 }
+/*es Messages.jsx i mej itemi avatari hamara NavLink i mej ete drvi*/
+/*.img {*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    border-radius: 30px;*/
+/*}*/
 
-.messages .message {
+.messagesdiv{
+padding: 10px;
+}
+.text{
+    border-radius: 15px;
+    resize: none;
 
+
+}
+.senddiv{
+padding: 30px 10px;
+}
+.buttonsend{
+    border: hidden;
+    border-radius: 15px;
+    background-color:greenyellow;
+    color: cornflowerblue;
 }

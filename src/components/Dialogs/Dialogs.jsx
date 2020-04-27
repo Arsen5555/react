@@ -1,41 +1,41 @@
 import React from 'react';
 import classes from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
-
-
-
-
-
+import DialogItem from "./Dialogitem/DialogItem";
+import Message from "./Message/Message";
 
 
 const Dialogs = (props) => {
-  return (
 
-     <div className={classes.dialogs}>
-       <div className={classes.dialogsItems}>
-         <div className={classes.dialog + ' ' + classes.active}>
-           <NavLink to="/dialogs/1">Item1</NavLink>
+
+  let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+
+  let messagesElements = props.state.messages.map(m => <Message messages={m.message}/>);
+
+  let newmessages = React.createRef();
+
+  let send=()=>{
+    let sendtext=newmessages.current.value;
+    alert(sendtext)
+  }
+
+  return (
+     <div>
+       <div className={classes.dialogs}>
+         <div className={classes.dialogsItems}>
+           {dialogsElements}
          </div>
-         <div className={classes.dialog}>
-           <NavLink to="/dialogs/2">Item2</NavLink>
+         <div className={classes.messages}>
+           {messagesElements}
          </div>
-         <div className={classes.dialog}>
-           <NavLink to="/dialogs/3">Item3</NavLink>
-         </div>
-         <div className={classes.dialog}>
-           <NavLink to="/dialogs/4">Item4</NavLink>
-         </div>
-         <div className={classes.dialog}>
-           <NavLink to="/dialogs/5">Item5</NavLink>
-         </div>
-         <div className={classes.dialog}>
-           <NavLink to="/dialogs/6">Item6</NavLink>
-         </div>
+
        </div>
-       <div className={classes.messages}>
-         <div className={classes.message}>Hi</div>
-         <div className={classes.message}>Hello</div>
-         <div className={classes.message}>Good</div>
+       <div className={classes.dialogs}>
+         <div className={classes.messagesdiv}>
+           <textarea className={classes.text} cols="30" rows="3" ref={newmessages}></textarea>
+         </div>
+         <div className={classes.senddiv}>
+           <button className={classes.buttonsend} onClick={send}>SEND</button>
+         </div>
        </div>
      </div>
   );
